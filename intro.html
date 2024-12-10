@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaparte Design</title>
+  <link rel="stylesheet" href="intro.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const introScreen = document.getElementById("intro-screen");
+      const fadeDuration = 5000;
+
+      setTimeout(() => {
+        introScreen.classList.add("fade-out");
+        setTimeout(() => {
+          introScreen.style.display = "none";
+          window.location.href = "home.html"; // Redirect to homepage
+        }, 1000);
+      }, fadeDuration);
+
+      introScreen.addEventListener("click", () => {
+        introScreen.classList.add("fade-out");
+        setTimeout(() => {
+          introScreen.style.display = "none";
+          window.location.href = "home.html"; // Redirect to homepage
+        }, 1000);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="intro-screen">
+    <img src="images/Malaparte logo WHT.png" alt="Malaparte Logo" id="logo">
+  </div>
+</body>
+</html>

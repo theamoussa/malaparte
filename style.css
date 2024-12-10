@@ -1,0 +1,83 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Proxima Nova', serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute; /* Make it lay on top of the banner */
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 10;
+  font-family: 'Proxima Nova', serif;
+}
+
+#logo img {
+  max-width: 120px;
+}
+
+nav {
+  flex-grow: 1; /* Allow the nav to take up remaining space */
+  display: flex;
+  justify-content: center; /* Center the navigation */
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white; /* White text for transparency effect */
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ddd; /* Subtle hover effect */
+}
+
+#intro-text {
+  position: absolute; /* Position the text container on top of the page */
+  top: 20%; /* Adjust the percentage as needed */
+  left: 5%;
+  text-align: justify;
+  padding: 20px;
+  background-color: transparent; /* Optional: add background with transparency */
+  color: white; /* Make the text white */
+  max-width: 400px;
+  z-index: 20;
+}
+
+/* Banner */
+#banner {
+  position: relative;
+  width: 100%;
+  max-height: 100vh; /* Maximum height 50% of viewport height */
+  overflow: hidden; /* Ensures the image is cropped */
+  z-index: 0;
+}
+
+#banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the container and crops if needed */
+}
+
+
+
