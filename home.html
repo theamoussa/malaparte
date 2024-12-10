@@ -12,9 +12,28 @@
     <div id="logo">
       <img src="images/Malaparte logo WHT.png" alt="Malaparte Design Logo">
     </div>
-    <nav>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-menu" class="desktop-menu">
       <ul>
-        <li><a href="#history">HISTORY</a></li>
+        <li><a href="history.html">HISTORY</a></li>
+        <li><a href="#collections">COLLECTIONS</a></li>
+        <li><a href="#exhibitions">EXHIBITIONS</a></li>
+        <li><a href="#press">PRESS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Hamburger Menu -->
+    <div id="hamburger-menu" class="hamburger">
+      ☰
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="mobile-menu">
+      <div id="close-btn" class="close-btn">X</div>
+      <ul>
+        <li><a href="history.html">HISTORY</a></li>
         <li><a href="#collections">COLLECTIONS</a></li>
         <li><a href="#exhibitions">EXHIBITIONS</a></li>
         <li><a href="#press">PRESS</a></li>
@@ -22,16 +41,32 @@
       </ul>
     </nav>
   </header>
-  
+
   <div id="intro-text">
-    <p style="font-size: larger;"><b>STORY</b></p>
+    <p style="font-size: larger;"><u>STORY</u></p>
      <p><br> Drawing inspiration from the existing spirit of Casa Malaparte, Malaparte Design is dedicated to honoring the legacy of both man and house through an exploration of the elements that give the house its unique voice. Founded in 2019 by Malaparte's youngest descendent, Tommaso Rositani Suckert, Malaparte Design seeks to create modern reinterpretations of the iconic brand in the areas of furniture, design, art, film, and hospitality..</p>
   </div>
   
   <div id="banner">
     <img src="images/IMG_4452.jpg" alt="Casa Malaparte">
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeBtn = document.getElementById("close-btn");
   
-  </main>
+      // Open the mobile menu when the hamburger button is clicked
+      hamburger.addEventListener("click", () => {
+        mobileMenu.style.display = "flex"; // Show mobile menu
+      });
+  
+      // Close the mobile menu when the close button (X) is clicked
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.style.display = "none"; // Hide mobile menu
+      });
+    });
+  </script>
 </body>
 </html>
