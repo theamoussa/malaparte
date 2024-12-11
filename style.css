@@ -64,17 +64,19 @@ header {
 
 /* Mobile Menu */
 .mobile-menu {
-  display: none;
+  display: flex;
   flex-direction: column;
+  justify-content: center; /* Centers items vertically */
+  align-items: center; /* Centers items horizontally */
   background-color: white;
   position: fixed;
   top: 0;
   left: 0;
   width: 80%;
-  height: 100%;
+  height: 100%; /* Full height to enable vertical centering */
   z-index: 100;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  padding-top: 20px;
+  padding-top: 0; /* Remove padding if not needed */
 }
 
 .mobile-menu ul {
@@ -87,18 +89,25 @@ header {
 }
 
 .mobile-menu li {
-  margin: 20px 0;
+  margin: 20px 0; /* Spacing between items */
 }
 
 .mobile-menu a {
   text-decoration: none;
   color: black;
-  font-size: 24px;
+  font-size: 14px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
 }
 
 /* Close Button in the Mobile Menu */
 .close-btn {
-  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
   color: black;
   cursor: pointer;
   position: absolute;
@@ -199,3 +208,72 @@ header {
     display: flex;
   }
 }
+
+/* Banner2 */
+#banner2 {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+#banner2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* History Text */
+#history {
+  display: flex;
+  flex-direction: column; /* Stacks the text and image vertically */
+  align-items: flex-start; /* Aligns the text to the left */
+  max-width: 70%; /* Restricts the width of the text container */
+  margin: 0 auto; /* Centers the history section */
+  text-align: justify;
+}
+
+#rightimage {
+  justify-self: right; /* Aligns the image container to the right */
+  margin-top: 20px; /* Adds spacing between the text and the image */
+  max-width: 60%;
+  padding-right: 30px;
+}
+
+#rightimage img {
+  max-width: 100%; /* Ensures the image is responsive */
+  height: auto; /* Maintains the image aspect ratio */
+  }
+
+  #leftimage {
+    justify-self: left; /* Aligns the image container to the right */
+    margin-top: 20px; /* Adds spacing between the text and the image */
+    max-width: 60%;
+    padding-left: 30px;
+  }
+  
+  #leftimage img {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto; /* Maintains the image aspect ratio */
+    }
+
+    #site-footer {
+      background-color: #f0f0f0; /* Light grey background */
+      color: black; /* Black text */
+      text-align: center; /* Center-aligns the text */
+      font-size: 12px; /* Small font size */
+      padding: 20px 10px; /* Padding for spacing */
+      margin-top: 20px; /* Adds space above the footer */
+      border-top: 1px solid #dcdcdc; /* Optional: subtle top border for separation */
+    }
+    #site-footer p {
+      margin: 5px 0; /* Small margin between paragraphs */
+    }
+
+    @media screen and (max-width: 768px) {
+      #site-footer {
+        font-size: 10px; /* Slightly smaller text on smaller screens */
+        padding: 15px 5px; /* Adjust padding for mobile */
+      }
+    }
