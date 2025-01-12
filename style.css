@@ -1,4 +1,7 @@
 /* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url("https://use.typekit.net/cmi0awi.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +17,7 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Proxima Nova', serif;
+  font-family: 'Maiola', serif;
 }
 
 header {
@@ -56,6 +59,7 @@ header {
   color: white;
   font-weight: bold;
   font-size: 16px;
+  font-family: 'Maiola', Times, serif;
   transition: color 0.3s;
 }
 
@@ -128,14 +132,16 @@ header {
 
 /* Intro Text */
 #intro-text {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
   position: absolute;
   top: 20%;
   left: 5%;
-  text-align: justify;
+  text-align: left;
   padding: 20px;
   background-color: transparent;
   color: white;
-  max-width: 500px;
+  max-width: 600px;
   z-index: 20;
 }
 
@@ -195,7 +201,7 @@ header {
   }
 
   #intro-text {
-    top: 10%;
+    top: 25%;
     left: 5%;
     max-width: 80%;
     padding: 10px;
@@ -242,7 +248,8 @@ header {
   align-items: flex-start; /* Aligns the text to the left */
   max-width: 70%; /* Restricts the width of the text container */
   margin: 0 auto; /* Centers the history section */
-  text-align: justify;
+  text-align: left;
+  font-size: 14px;
 }
 
 #rightimage {
@@ -288,3 +295,153 @@ header {
         padding: 15px 5px; /* Adjust padding for mobile */
       }
     }
+    @media screen and (max-width: 768px) {
+      #leftimage, #rightimage {
+        max-width: 80%; /* Set the width to 80% */
+        margin: 20px auto; /* Center the images with auto margins */
+        padding: 0; /* Remove padding */
+      }
+    
+      #leftimage img, #rightimage img {
+        width: 100%; /* Ensure images fill the container width */
+        height: auto; /* Maintain the aspect ratio */
+      }
+    }
+
+/* Container for the whole carousel */
+.carousel-container {
+  max-width: 60%;
+  margin: 0 auto;
+  position: relative;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Carousel box */
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative; /* For positioning slides */
+  overflow: hidden; /* Hide non-active slides */
+}
+
+/* Slides */
+.carousel-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slides img {
+  position: absolute; /* Stack all images on top of each other */
+  top: 0;
+  left: 50%; /* Start from the center */
+  transform: translateX(-50%); /* Center horizontally */
+  height: 100%; /* Fill the container height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the entire image is visible */
+  opacity: 0; /* Hide all images by default */
+  transition: opacity 0.5s ease; /* Smooth fade effect */
+  z-index: 0;
+}
+
+.carousel-slides img.active {
+  opacity: 1; /* Show the active image */
+  z-index: 1;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  color: black;
+}
+
+.left-arrow {
+  left: -40px;
+}
+
+.right-arrow {
+  right: -40px;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnails img {
+  width: 60px;
+  height: auto;
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+}
+
+.thumbnails img.active-thumb {
+  border-color: black;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
+    .carousel-container {
+      max-width: 100%;
+      height: 300px; /* Set a fixed height for the container */
+      overflow: hidden; /* Prevent content overflow */
+    }
+  
+    .carousel-slides {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      height: 100%; /* Match the container height */
+    }
+  
+    .carousel-slides img {
+      flex: 0 0 100%; /* Each image takes up 100% width */
+      height: 100%; /* Scale image to match container height */
+      object-fit: contain; /* Maintain aspect ratio */
+      scroll-snap-align: center;
+    }
+  }
+
+  /* Hide Arrows */
+  .arrow {
+    display: none; /* Remove arrows for mobile */
+  }
+
+  /* Hide Thumbnails */
+  .thumbnails {
+    display: none; /* Completely hide thumbnails on mobile */
+  }
+}
+@media screen and (min-width: 769px) {
+  .thumbnails {
+    display: flex; /* Show thumbnails on larger screens */
+  }
+
+  .arrow {
+    display: block; /* Show arrows on larger screens */
+  }
+}
+   
+.carousel-slides img {
+  opacity: 1; /* Ensure images are visible */
+  display: block; /* Ensure images are displayed */
+  position: relative; /* Avoid absolute positioning issues on mobile */
+}
+    
