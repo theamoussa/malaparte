@@ -31,20 +31,20 @@
     <nav id="mobile-menu" class="mobile-menu">
       <div id="close-btn" class="close-btn">x</div>
       <ul>
-        <li><a href="home.html">STORY</a></li>
-        <li><a href="history.html">HISTORY</a></li>
-        <li><a href="#editions">EDITIONS</a></li>
-        <li><a href="#thesofa">THE SOFA</a></li>
-        <li><a href="#exhibitions">EXHIBITIONS</a></li>
-        <li><a href="#press">PRESS</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="home.html">Story</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="#thesofa">The Sofa</a></li>
+        <li><a href="#exhibitions">Exhibitions</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <div id="banner2">
-    <img src="images/editions/IMG_4510.jpg" alt="Casa Malaparte">
+    <img src="images/editions/IMG_4510.jpg" alt="Editions">
   </div>
+  
 <br>
 <div id="history">
   <p style="font-size: larger;"><b>Iconic Collection</b></p><br>
@@ -105,7 +105,7 @@
     <div class="carousel">
       <div class="carousel-slides">
         <img src="images/editions/IMG_1409.jpg" alt="Console 1" class="active">
-        <img src="iimages/editions/IMG_1311(1).jpg" alt="Console 2">
+        <img src="images/editions/IMG_1311(1).jpg" alt="Console 2">
         <img src="images/editions/IMG_1292(1).jpg" alt="Console 3">
       </div>
     </div>
@@ -185,36 +185,51 @@
     document.addEventListener('DOMContentLoaded', () => {
   const carouselContainers = document.querySelectorAll('.carousel-container');
 
-  carouselContainers.forEach(container => {
+  carouselContainers.forEach((container) => {
+    const slidesContainer = container.querySelector('.carousel-slides'); // Container holding all slides
     const slides = container.querySelectorAll('.carousel-slides img');
     const thumbnails = container.querySelectorAll('.thumbnails img');
     const leftArrow = container.querySelector('.left-arrow');
     const rightArrow = container.querySelector('.right-arrow');
     let currentIndex = 0;
 
-    // Update the active slide and thumbnail
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+    // Function to update the carousel
     const updateCarousel = (index) => {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      thumbnails.forEach((thumb, i) => {
-        thumb.classList.toggle('active-thumb', i === index);
-      });
+      if (!isMobile()) {
+        // Desktop: Use active class for fade effect
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+
+        thumbnails.forEach((thumb, i) => {
+          thumb.classList.toggle('active-thumb', i === index);
+        });
+      } else {
+        // Mobile: Translate container for scrolling
+        slidesContainer.style.transform = `translateX(${-index * 100}%)`;
+        slidesContainer.style.transition = 'transform 0.5s ease';
+      }
     };
 
-    // Left arrow click
-    leftArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel(currentIndex);
-    });
+    // Left arrow navigation
+    if (leftArrow) {
+      leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel(currentIndex);
+      });
+    }
 
-    // Right arrow click
-    rightArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateCarousel(currentIndex);
-    });
+    // Right arrow navigation
+    if (rightArrow) {
+      rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(currentIndex);
+      });
+    }
 
-    // Thumbnail click
+    // Thumbnail navigation
     thumbnails.forEach((thumb, i) => {
       thumb.addEventListener('click', () => {
         currentIndex = i;
@@ -222,10 +237,17 @@
       });
     });
 
-    // Initialize the carousel
+    // Initialize carousel
     updateCarousel(currentIndex);
+
+    // Reset on resize
+    window.addEventListener('resize', () => {
+      currentIndex = 0; // Reset to the first slide
+      updateCarousel(currentIndex);
+    });
   });
 });
+
 
 
   </script>

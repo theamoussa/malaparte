@@ -397,38 +397,38 @@ header {
 @media screen and (max-width: 768px) {
   @media screen and (max-width: 768px) {
     .carousel-container {
-      max-width: 100%;
-      height: 300px; /* Set a fixed height for the container */
-      overflow: hidden; /* Prevent content overflow */
+      max-width: 100%; /* Full width on mobile */
+      height: 300px; /* Fixed height for consistent layout */
+      overflow: hidden; /* Prevent overflow outside the container */
+      position: relative;
     }
   
     .carousel-slides {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      height: 100%; /* Match the container height */
+      display: flex; /* Align all slides in a row */
+      flex-wrap: nowrap; /* Prevent wrapping */
+      overflow-x: scroll; /* Allow horizontal scrolling */
+      scroll-snap-type: x mandatory; /* Snap to each image */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+      height: 100%;
     }
   
     .carousel-slides img {
-      flex: 0 0 100%; /* Each image takes up 100% width */
-      height: 100%; /* Scale image to match container height */
-      object-fit: contain; /* Maintain aspect ratio */
-      scroll-snap-align: center;
+      flex: 0 0 100%; /* Each image takes up the full container width */
+      height: 100%; /* Maintain aspect ratio */
+      object-fit: contain; /* Ensure the full image is visible */
+      scroll-snap-align: center; /* Snap each image to the center */
+    }
+  
+    .arrow {
+      display: none; /* Hide arrows on mobile */
+    }
+  
+    .thumbnails {
+      display: none; /* Hide thumbnails on mobile */
     }
   }
+  
 
-  /* Hide Arrows */
-  .arrow {
-    display: none; /* Remove arrows for mobile */
-  }
-
-  /* Hide Thumbnails */
-  .thumbnails {
-    display: none; /* Completely hide thumbnails on mobile */
-  }
-}
 @media screen and (min-width: 769px) {
   .thumbnails {
     display: flex; /* Show thumbnails on larger screens */
@@ -438,10 +438,5 @@ header {
     display: block; /* Show arrows on larger screens */
   }
 }
-   
-.carousel-slides img {
-  opacity: 1; /* Ensure images are visible */
-  display: block; /* Ensure images are displayed */
-  position: relative; /* Avoid absolute positioning issues on mobile */
-}
+  
     
