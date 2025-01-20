@@ -199,56 +199,40 @@
   <p>Photos by Dariusz Jasak. All rights reserved Malaparte Design, LLC.</p>
 </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger-menu");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeBtn = document.getElementById("close-btn");
-  
-      // Open the mobile menu when the hamburger button is clicked
-      hamburger.addEventListener("click", () => {
-        mobileMenu.style.display = "flex"; // Show mobile menu
-      });
-  
-      // Close the mobile menu when the close button (X) is clicked
-      closeBtn.addEventListener("click", () => {
-        mobileMenu.style.display = "none"; // Hide mobile menu
-      });
-    });
-
-    // Carousel
-    document.addEventListener('DOMContentLoaded', () => {
+<script>
+document.addEventListener('DOMContentLoaded', () => {
   const carouselContainers = document.querySelectorAll('.carousel-container');
 
   carouselContainers.forEach((container) => {
-    const slidesContainer = container.querySelector('.carousel-slides'); // Container holding all slides
-    const slides = container.querySelectorAll('.carousel-slides img');
-    const thumbnails = container.querySelectorAll('.thumbnails img');
+    const slidesContainer = container.querySelector('.carousel-slides'); // Holds all slides
+    const slides = container.querySelectorAll('.carousel-slides img'); // Images inside the carousel
     const leftArrow = container.querySelector('.left-arrow');
     const rightArrow = container.querySelector('.right-arrow');
+    const thumbnails = container.querySelectorAll('.thumbnails img');
     let currentIndex = 0;
 
     const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-    // Function to update the carousel
+    // Update carousel display
     const updateCarousel = (index) => {
-      if (!isMobile()) {
-        // Desktop: Use active class for fade effect
+      if (isMobile()) {
+        // Scroll horizontally to the next slide
+        slidesContainer.scrollTo({
+          left: index * slidesContainer.clientWidth,
+          behavior: 'smooth',
+        });
+      } else {
+        // Update desktop-specific behavior
         slides.forEach((slide, i) => {
           slide.classList.toggle('active', i === index);
         });
-
         thumbnails.forEach((thumb, i) => {
           thumb.classList.toggle('active-thumb', i === index);
         });
-      } else {
-        // Mobile: Translate container for scrolling
-        slidesContainer.style.transform = `translateX(${-index * 100}%)`;
-        slidesContainer.style.transition = 'transform 0.5s ease';
       }
     };
 
-    // Left arrow navigation
+    // Handle arrow navigation
     if (leftArrow) {
       leftArrow.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
@@ -256,7 +240,6 @@
       });
     }
 
-    // Right arrow navigation
     if (rightArrow) {
       rightArrow.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % slides.length;
@@ -264,7 +247,7 @@
       });
     }
 
-    // Thumbnail navigation
+    // Handle thumbnail clicks (for desktop only)
     thumbnails.forEach((thumb, i) => {
       thumb.addEventListener('click', () => {
         currentIndex = i;
@@ -272,18 +255,36 @@
       });
     });
 
-    // Initialize carousel
-    updateCarousel(currentIndex);
+    // Mobile-specific swipe functionality
+    let startX = 0;
+    slidesContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX; // Record starting touch position
+    });
 
-    // Reset on resize
+    slidesContainer.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX; // Record ending touch position
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 50) {
+        // Determine swipe direction
+        if (diffX > 0) {
+          currentIndex = (currentIndex + 1) % slides.length; // Swipe left
+        } else {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Swipe right
+        }
+        updateCarousel(currentIndex);
+      }
+    });
+
+    // Reinitialize carousel on window resize
     window.addEventListener('resize', () => {
-      currentIndex = 0; // Reset to the first slide
       updateCarousel(currentIndex);
     });
+
+    // Initialize carousel
+    updateCarousel(currentIndex);
   });
 });
-
-
 
   </script>
 

@@ -319,6 +319,16 @@ header {
   align-items: center;
 }
 
+.carousel-item {
+  flex: 0 0 100%; /* Each image takes 100% of the container width */
+  scroll-snap-align: start; /* Aligns each item to the start when scrolling */
+}
+
+.carousel-item img {
+  width: 100%; /* Ensure the image stretches to fill the item */
+  height: auto; /* Maintain aspect ratio */
+}
+
 /* Carousel box */
 .carousel {
   width: 100%;
@@ -393,50 +403,76 @@ header {
   border-color: black;
   opacity: 1;
 }
-
 @media screen and (max-width: 768px) {
-  @media screen and (max-width: 768px) {
-    .carousel-container {
-      max-width: 100%; /* Full width on mobile */
-      height: 300px; /* Fixed height for consistent layout */
-      overflow: hidden; /* Prevent overflow outside the container */
-      position: relative;
-    }
-  
-    .carousel-slides {
-      display: flex; /* Align all slides in a row */
-      flex-wrap: nowrap; /* Prevent wrapping */
-      overflow-x: scroll; /* Allow horizontal scrolling */
-      scroll-snap-type: x mandatory; /* Snap to each image */
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
-      height: 100%;
-    }
-  
-    .carousel-slides img {
-      flex: 0 0 100%; /* Each image takes up the full container width */
-      height: 100%; /* Maintain aspect ratio */
-      object-fit: contain; /* Ensure the full image is visible */
-      scroll-snap-align: center; /* Snap each image to the center */
-    }
-  
-    .arrow {
-      display: none; /* Hide arrows on mobile */
-    }
-  
-    .thumbnails {
-      display: none; /* Hide thumbnails on mobile */
-    }
+  .carousel-container {
+    max-width: 100%; /* Full width on mobile */
+    height: 300px; /* Fixed height for consistent layout */
+    overflow: hidden; /* Prevent overflow outside the container */
+    position: relative; /* Ensure child elements stay positioned inside */
   }
-  
 
-@media screen and (min-width: 769px) {
-  .thumbnails {
-    display: flex; /* Show thumbnails on larger screens */
+  .carousel-item {
+    flex: 0 0 100%; /* Each image takes 100% of the container width */
+    scroll-snap-align: start; /* Aligns each item to the start when scrolling */
+}
+.carousel-item img {
+  width: 100%; /* Ensure the image stretches to fill the item */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+  .carousel-slides {
+    display: flex; /* Align slides horizontally */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap to each image */
+    -webkit-overflow-scrolling: touch; /* Smooth touch scrolling */
+    height: 100%; /* Match the container height */
+  }
+
+  .carousel-slides img {
+    flex: 0 0 100%; /* Each image takes full width */
+    height: 100%; /* Match the container height */
+    object-fit: contain; /* Ensure the entire image is visible */
+    scroll-snap-align: start; /* Snap each image to the left edge */
+    gap: 0;
   }
 
   .arrow {
-    display: block; /* Show arrows on larger screens */
+    display: none; /* Hide arrows on mobile */
+  }
+
+  .thumbnails {
+    display: none; /* Hide thumbnails on mobile */
   }
 }
-  
-    
+
+@media screen and (min-width: 769px) {
+  .carousel-slides img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    object-fit: contain; /* Ensure full image is visible */
+    opacity: 0; /* Hide all images by default */
+    transition: opacity 0.5s ease; /* Smooth fade effect */
+    z-index: 0;
+  }
+
+  .carousel-slides img.active {
+    opacity: 1; /* Show the active image */
+    z-index: 1;
+  }
+
+  .arrow {
+    display: block; /* Show arrows on desktop */
+  }
+
+  .thumbnails {
+    display: flex; /* Show thumbnails on desktop */
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
