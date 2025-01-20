@@ -14,40 +14,138 @@ html, body {
 }
 
 body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: 'Maiola', serif;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
+  position: fixed; /* Sticky to the top */
   top: 0;
+  left: 0;
   width: 100%;
-  padding: 20px 40px;
-  z-index: 10;
+  z-index: 1000;
+  padding: 10px 20px; /* Adjust padding as needed */
+  display: flex;
+  align-items: center; /* Vertically align logo and menu */
+  justify-content: space-between; /* Space between logo and menu */
+  background-color: transparent; /* Transparent by default */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none; /* No shadow initially */
+}
+
+header.scrolled {
+  background-color: white; /* Solid background when scrolled */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+/* Logo */
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 #logo img {
   max-width: 150px;
+  height: auto;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  font-size: 20px;
+  color: black;
+  z-index: 101;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  z-index: 100;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu li {
+  margin: 20px 0;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* Close Button in Mobile Menu */
+.close-btn {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Mobile-Specific Adjustments */
+@media screen and (max-width: 768px) {
+  .header.scrolled {
+    background-color: white; /* Solid background when scrolled */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger menu */
+    margin-top: 20px;
+  }
+
+  .desktop-menu {
+    display: none; /* Hide desktop menu */
+  }
+  header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between; /* Align hamburger and logo */
+    align-items: center;
+  }
+
+  #logo img {
+    max-width: 120px; /* Adjust logo size for mobile */
+    position: fixed;
+    margin-top: 20px;
+  }
 }
 
 /* Desktop Menu */
 .desktop-menu {
   display: flex;
-  justify-content: center; /* Center the menu items horizontally */
-  align-items: center; /* Center the menu items vertically if needed */
-  width: 100%; /* Ensure the menu spans the full width of the screen */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .desktop-menu ul {
   display: flex;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 .desktop-menu ul li {
@@ -67,79 +165,16 @@ header {
   color: #ddd;
 }
 
-/* Mobile Hamburger Button */
-.hamburger {
-  display: none;
-  font-size: 40px;
-  cursor: pointer;
-  z-index: 101;
-  position: fixed;
 
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers items vertically */
-  align-items: center; /* Centers items horizontally */
-  background-color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 100%; /* Full height to enable vertical centering */
-  z-index: 100;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  padding-top: 0; /* Remove padding if not needed */
-}
-
-.mobile-menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mobile-menu li {
-  margin: 20px 0; /* Spacing between items */
-}
-
-.mobile-menu a {
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-}
-
-.mobile-menu a {
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-}
-
-/* Close Button in the Mobile Menu */
-.close-btn {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
 
 /* Intro Text */
 #intro-text {
-  font-family: 'Times New Roman', Times, serif;
   font-size: 14px;
   position: absolute;
   top: 20%;
   left: 5%;
   text-align: left;
   padding: 20px;
-  background-color: transparent;
   color: white;
   max-width: 600px;
   z-index: 20;
@@ -157,76 +192,9 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-  /* Desktop Menu should be hidden on mobile */
-  .desktop-menu {
-    display: none;
-  }
-
-  /* Mobile Header Layout */
-  header {
-    display: flex;
-    justify-content: space-between; /* Aligns logo and hamburger on opposite sides */
-    align-items: center; /* Vertically aligns logo and hamburger */
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 10px 20px; /* Adjusts spacing for mobile */
-    z-index: 100;
-  }
-
-  /* Center the Malaparte logo */
-  #logo {
-    position: static; /* Prevent absolute positioning */
-    margin: 0 auto; /* Center the logo between the hamburger and empty space */
-  }
-
-  /* Mobile Hamburger Button */
-  .hamburger {
-    display: block;
-    font-size: 40px;
-    cursor: pointer;
-    z-index: 101;
-    margin-left: 10px; /* Aligns with the logo's padding */
-    color: white;
-  }
-
-  /* Mobile Menu */
-  .mobile-menu {
-    display: none;
-  }
-
-  #intro-text {
-    top: 15%;
-    left: 5%;
-    max-width: 80%;
-    padding: 10px;
-  }
-}
-
-/* Desktop Styles */
-@media screen and (min-width: 769px) {
-  /* Mobile Hamburger should be hidden on desktop */
-  .hamburger {
-    display: none;
-  }
-
-  /* Mobile Menu should be hidden on desktop */
-  .mobile-menu {
-    display: none;
-  }
-
-  /* Desktop Menu should be shown on desktop */
-  .desktop-menu {
-    display: flex;
-  }
-}
-
-/* Banner2 */
+/* Banner 2 */
 #banner2 {
   position: relative;
   width: 100%;
@@ -238,241 +206,178 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
 /* History Text */
 #history {
   display: flex;
-  flex-direction: column; /* Stacks the text and image vertically */
-  align-items: flex-start; /* Aligns the text to the left */
-  max-width: 70%; /* Restricts the width of the text container */
-  margin: 0 auto; /* Centers the history section */
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 70%;
+  margin: 0 auto;
   text-align: left;
   font-size: 14px;
 }
 
 #rightimage {
-  justify-self: right; /* Aligns the image container to the right */
-  margin-top: 20px; /* Adds spacing between the text and the image */
+  margin-top: 20px;
+  max-width: 60%;
+  padding-left: 30px;
+}
+
+#leftimage {
+  margin-top: 20px;
   max-width: 60%;
   padding-right: 30px;
+  justify-self: right;
 }
 
-#rightimage img {
-  max-width: 100%; /* Ensures the image is responsive */
-  height: auto; /* Maintains the image aspect ratio */
+
+#leftimage img, #rightimage img {
+  width: 100%;
+  height: auto;
+}
+
+/* Site Footer */
+#site-footer {
+  background-color: #f0f0f0;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  padding: 20px 10px;
+  margin-top: 20px;
+  border-top: 1px solid #dcdcdc;
+}
+
+#site-footer p {
+  margin: 5px 0;
+}
+
+/* Responsive: Footer */
+@media screen and (max-width: 768px) {
+  #site-footer {
+    font-size: 10px;
+    padding: 15px 5px;
   }
 
-  #leftimage {
-    justify-self: left; /* Aligns the image container to the right */
-    margin-top: 20px; /* Adds spacing between the text and the image */
-    max-width: 60%;
-    padding-left: 30px;
+  #leftimage, #rightimage {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 0;
   }
-  
-  #leftimage img {
-    max-width: 100%; /* Ensures the image is responsive */
-    height: auto; /* Maintains the image aspect ratio */
-    }
+}
 
-    #site-footer {
-      background-color: #f0f0f0; /* Light grey background */
-      color: black; /* Black text */
-      text-align: center; /* Center-aligns the text */
-      font-size: 12px; /* Small font size */
-      padding: 20px 10px; /* Padding for spacing */
-      margin-top: 20px; /* Adds space above the footer */
-      border-top: 1px solid #dcdcdc; /* Optional: subtle top border for separation */
-    }
-    #site-footer p {
-      margin: 5px 0; /* Small margin between paragraphs */
-    }
-
-    @media screen and (max-width: 768px) {
-      #site-footer {
-        font-size: 10px; /* Slightly smaller text on smaller screens */
-        padding: 15px 5px; /* Adjust padding for mobile */
-      }
-    }
-    @media screen and (max-width: 768px) {
-      #leftimage, #rightimage {
-        max-width: 80%; /* Set the width to 80% */
-        margin: 20px auto; /* Center the images with auto margins */
-        padding: 0; /* Remove padding */
-      }
-    
-      #leftimage img, #rightimage img {
-        width: 100%; /* Ensure images fill the container width */
-        height: auto; /* Maintain the aspect ratio */
-      }
-    }
-
-/* Container for the whole carousel */
+/* Carousel Container */
 .carousel-container {
-  max-width: 60%;
-  margin: 0 auto;
-  position: relative;
+  max-width: 60%; /* Desktop width */
   height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-item {
-  flex: 0 0 100%; /* Each image takes 100% of the container width */
-  scroll-snap-align: start; /* Aligns each item to the start when scrolling */
-}
-
-.carousel-item img {
-  width: 100%; /* Ensure the image stretches to fill the item */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Carousel box */
-.carousel {
-  width: 100%;
-  height: 100%;
-  position: relative; /* For positioning slides */
-  overflow: hidden; /* Hide non-active slides */
-}
-
-/* Slides */
-.carousel-slides {
+  margin: 0 auto;
+  overflow: hidden;
   position: relative;
-  width: 100%;
+}
+
+/* Carousel Slides */
+.carousel-slides {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
 }
 
 .carousel-slides img {
-  position: absolute; /* Stack all images on top of each other */
-  top: 0;
-  left: 50%; /* Start from the center */
-  transform: translateX(-50%); /* Center horizontally */
-  height: 100%; /* Fill the container height */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure the entire image is visible */
-  opacity: 0; /* Hide all images by default */
-  transition: opacity 0.5s ease; /* Smooth fade effect */
-  z-index: 0;
+  flex: 0 0 100%;
+  height: 100%;
+  object-fit: contain;
+  scroll-snap-align: start;
 }
 
-.carousel-slides img.active {
-  opacity: 1; /* Show the active image */
-  z-index: 1;
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
 }
 
-/* Arrows */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  color: black;
+
+@media screen and (max-width: 768px) {
+  /* Mobile Header Layout */
+  header {
+    display: flex;
+    justify-content: space-between; /* Align hamburger and empty space on opposite sides */
+    align-items: center; /* Vertically align logo and hamburger */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px; /* Adjust spacing for mobile */
+    z-index: 100;
+  }
+
+  #logo {
+    position: static; /* Prevent absolute positioning */
+    margin: 0 auto; /* Center the logo between the hamburger and empty space */
+    text-align: center; /* Center the logo content */
+  }
+
+  #logo img {
+    max-width: 120px; /* Adjust size for mobile if needed */
+    height: auto;
+  }
+
+  .hamburger {
+    display: block; /* Ensure hamburger is visible on mobile */
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 101;
+    margin-left: 10px; /* Aligns with the logo's padding */
+    color: black;
+  }
 }
 
-.left-arrow {
-  left: -40px;
-}
 
-.right-arrow {
-  right: -40px;
-}
 
-/* Thumbnails */
-.thumbnails {
+.carousel-thumbnails {
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  justify-content: center; /* Center thumbnails */
+  gap: 10px; /* Space between thumbnails */
+  margin-top: 15px; /* Space below carousel */
 }
 
-.thumbnails img {
-  width: 60px;
-  height: auto;
-  margin: 0 5px;
+.carousel-thumbnails img {
+  width: 60px; /* Thumbnail width */
+  height: 60px; /* Thumbnail height to ensure uniformity */
+  object-fit: cover; /* Crop the image to fill the container */
+  object-position: center; /* Center the cropped image */
+  opacity: 0.6; /* Dim inactive thumbnails */
+  border: 2px solid transparent; /* No border unless active */
   cursor: pointer;
-  opacity: 0.6;
-  border: 2px solid transparent;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
 }
 
-.thumbnails img.active-thumb {
-  border-color: black;
-  opacity: 1;
+.carousel-thumbnails img.active-thumb {
+  opacity: 1; /* Highlight active thumbnail */
+  
 }
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .carousel-container {
     max-width: 100%; /* Full width on mobile */
-    height: 300px; /* Fixed height for consistent layout */
-    overflow: hidden; /* Prevent overflow outside the container */
-    position: relative; /* Ensure child elements stay positioned inside */
+    height: 300px; /* Smaller height for mobile */
   }
 
-  .carousel-item {
-    flex: 0 0 100%; /* Each image takes 100% of the container width */
-    scroll-snap-align: start; /* Aligns each item to the start when scrolling */
-}
-.carousel-item img {
-  width: 100%; /* Ensure the image stretches to fill the item */
-  height: auto; /* Maintain aspect ratio */
-}
-
-
-  .carousel-slides {
-    display: flex; /* Align slides horizontally */
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: scroll; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Snap to each image */
-    -webkit-overflow-scrolling: touch; /* Smooth touch scrolling */
-    height: 100%; /* Match the container height */
-  }
-
-  .carousel-slides img {
-    flex: 0 0 100%; /* Each image takes full width */
-    height: 100%; /* Match the container height */
-    object-fit: contain; /* Ensure the entire image is visible */
-    scroll-snap-align: start; /* Snap each image to the left edge */
-    gap: 0;
-  }
-
-  .arrow {
-    display: none; /* Hide arrows on mobile */
-  }
-
-  .thumbnails {
+  .carousel-thumbnails {
     display: none; /* Hide thumbnails on mobile */
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .carousel-slides img {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: auto;
-    object-fit: contain; /* Ensure full image is visible */
-    opacity: 0; /* Hide all images by default */
-    transition: opacity 0.5s ease; /* Smooth fade effect */
-    z-index: 0;
-  }
-
-  .carousel-slides img.active {
-    opacity: 1; /* Show the active image */
-    z-index: 1;
-  }
-
-  .arrow {
-    display: block; /* Show arrows on desktop */
-  }
-
-  .thumbnails {
-    display: flex; /* Show thumbnails on desktop */
-    justify-content: center;
-    margin-top: 10px;
   }
 }

@@ -28,7 +28,6 @@
 
     <!-- Mobile Navigation -->
     <nav id="mobile-menu" class="mobile-menu">
-      <div id="close-btn" class="close-btn">x</div>
       <ul>
         <li><a href="home.html">Story</a></li>
         <li><a href="editions.html">Editions</a></li>
@@ -68,21 +67,32 @@
 </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger-menu");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeBtn = document.getElementById("close-btn");
-  
-      // Open the mobile menu when the hamburger button is clicked
-      hamburger.addEventListener("click", () => {
-        mobileMenu.style.display = "flex"; // Show mobile menu
-      });
-  
-      // Close the mobile menu when the close button (X) is clicked
-      closeBtn.addEventListener("click", () => {
-        mobileMenu.style.display = "none"; // Hide mobile menu
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Scroll event to add background and shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Toggle mobile menu visibility
+  if (hamburgerMenu && mobileMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none'; // Close the mobile menu
+      } else {
+        mobileMenu.style.display = 'flex'; // Open the mobile menu
+      }
     });
+  }
+});
+
   </script>
   <!-- Add content specific to the History page here -->
 </body>
