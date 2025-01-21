@@ -162,7 +162,7 @@ header.scrolled {
 }
 
 .desktop-menu ul li a:hover {
-  color: #ff8000;
+  color: #bebebe;
 }
 
 
@@ -239,6 +239,14 @@ header.scrolled {
   margin: 0 auto;
   text-align: center;
   font-size: 18px;
+}
+
+#Title2 {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 10%;
 }
 
 a {
@@ -469,4 +477,32 @@ a:hover {
     opacity: 1;
   }
 }
+
+
+
+
+.press-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 10%;
+}
+
+.press-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.press-item img {
+  width: 100px;
+  max-height: 40px;
+  object-fit: cover;
+}
+
+
+.caption a {
+  color: #000;
+}
+
 
