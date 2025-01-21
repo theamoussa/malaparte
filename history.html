@@ -99,6 +99,20 @@
 
   </script>
   <!-- Add content specific to the History page here -->
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+  const pathname = window.location.pathname;
+  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
+    const htmlPath = pathname + '.html';
+    window.location.replace(htmlPath);
+  }
+</script>
 </body>
 
 
