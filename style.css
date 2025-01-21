@@ -373,7 +373,7 @@ header.scrolled {
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .carousel-container {
-    max-width: 100%; /* Full width on mobile */
+    max-width: 98%; /* Full width on mobile */
     height: 300px; /* Smaller height for mobile */
   }
 
