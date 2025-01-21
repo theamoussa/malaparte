@@ -206,6 +206,7 @@ header.scrolled {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* History Text */
@@ -216,6 +217,13 @@ header.scrolled {
   max-width: 70%;
   margin: 0 auto;
   text-align: left;
+  font-size: 14px;
+}
+
+#Title {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
   font-size: 14px;
 }
 
@@ -295,11 +303,6 @@ header.scrolled {
 
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
-  .carousel-container {
-    max-width: 100%;
-    height: 300px;
-  }
-
   .hamburger {
     display: block;
   }
