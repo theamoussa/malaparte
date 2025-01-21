@@ -177,5 +177,193 @@
     <p>Malaparte™️ - Casa Malaparte®️</p>
     <p>Photos by Dariusz Jasak. All rights reserved Malaparte Design, LLC.</p>
   </footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carouselContainers = document.querySelectorAll('.carousel-container');
+
+      carouselContainers.forEach((container) => {
+        const slidesContainer = container.querySelector('.carousel-slides');
+        const slides = container.querySelectorAll('.carousel-slides img');
+
+        // Snap to the nearest slide
+        const snapToSlide = () => {
+          const slideWidth = slides[0].clientWidth;
+          const index = Math.round(slidesContainer.scrollLeft / slideWidth);
+          slidesContainer.scrollTo({
+            left: index * slideWidth,
+            behavior: 'smooth',
+          });
+
+        };
+
+        slidesContainer.addEventListener('scroll', () => {
+          clearTimeout(slidesContainer.snapTimeout);
+          slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
+        });
+
+        window.addEventListener('resize', () => snapToSlide());
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+  if (hamburgerMenu && mobileMenu && closeBtn) {
+    // Open mobile menu
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.style.display = 'flex';
+    });
+
+    // Close mobile menu
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+
+
+  // Toggle mobile menu visibility
+  if (hamburgerMenu && mobileMenu && closeBtn) {
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.style.display = 'flex'; // Show the mobile menu
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.style.display = 'none'; // Hide the mobile menu
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselContainers = document.querySelectorAll('.carousel-container');
+
+  carouselContainers.forEach((container) => {
+    const slidesContainer = container.querySelector('.carousel-slides');
+    const slides = container.querySelectorAll('.carousel-slides img');
+    const thumbnailsContainer = container.nextElementSibling; // Assumes thumbnails follow the carousel
+    const thumbnails = thumbnailsContainer.querySelectorAll('img');
+
+    // Update the active thumbnail
+    const updateActiveThumbnail = (currentIndex) => {
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active-thumb', index === currentIndex);
+      });
+    };
+
+    // Snap to the nearest slide
+    const snapToSlide = () => {
+      const slideWidth = slides[0].clientWidth;
+      const currentIndex = Math.round(slidesContainer.scrollLeft / slideWidth);
+
+      slidesContainer.scrollTo({
+        left: currentIndex * slideWidth,
+        behavior: 'smooth',
+      });
+
+      updateActiveThumbnail(currentIndex);
+    };
+
+    // Handle thumbnail clicks
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        slidesContainer.scrollTo({
+          left: index * slides[0].clientWidth,
+          behavior: 'smooth',
+        });
+
+        updateActiveThumbnail(index);
+      });
+    });
+
+    // Snap to slide on scroll
+    slidesContainer.addEventListener('scroll', () => {
+      clearTimeout(slidesContainer.snapTimeout);
+      slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
+    });
+
+    // Align slides properly on window resize
+    window.addEventListener('resize', snapToSlide);
+  });
+});
+
+
+
+//Don't change above
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+
+
+  // Toggle mobile menu
+  if (hamburgerMenu && mobileMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+      } else {
+        mobileMenu.style.display = 'flex';
+      }
+    });
+  }
+});
+
+
+
+</script>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+  const pathname = window.location.pathname;
+  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
+    const htmlPath = pathname + '.html';
+    window.location.replace(htmlPath);
+  }
+</script>
+<script>
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  // Function to toggle mobile menu
+  hamburgerMenu.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Variables to track swipe gesture
+  let startX = 0;
+  let endX = 0;
+
+  // Detect touch start
+  mobileMenu.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX;
+  });
+
+  // Detect touch end
+  mobileMenu.addEventListener('touchend', (event) => {
+    endX = event.changedTouches[0].clientX;
+
+    // Check if swipe left occurred
+    if (startX - endX > 50) { // Threshold of 50px for swipe detection
+      mobileMenu.style.display = 'none'; // Close the mobile menu
+    }
+  });
+</script>
 </body>
 </html>
