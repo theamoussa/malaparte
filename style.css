@@ -505,4 +505,22 @@ a:hover {
   color: #000;
 }
 
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .press-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    width: 95%;
+  }
 
+  .press-item img {
+    width: 100%;
+    max-width: 20%;
+  }
+
+  .press-item .caption {
+    font-size: 14px;
+    text-align: left;
+  }
+}
