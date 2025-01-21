@@ -227,6 +227,33 @@ header.scrolled {
   font-size: 18px;
 }
 
+a {
+  text-decoration: none; /* Remove underline by default */
+  color: inherit; /* Inherit text color from parent */
+  transition: text-decoration 0.3s ease; /* Smooth transition for effect */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+@media screen and (max-width: 768px) {
+
+  #history {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+  
+  #Title {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+  } 
+}
+
 #rightimage {
   margin-top: 20px;
   max-width: 60%;
@@ -321,7 +348,7 @@ header.scrolled {
     justify-content: space-between; /* Align hamburger and empty space on opposite sides */
     align-items: center; /* Vertically align logo and hamburger */
     position: absolute;
-    top: 0;
+    top: 10;
     width: 100%;
     padding: 10px 20px; /* Adjust spacing for mobile */
     z-index: 100;
@@ -331,6 +358,7 @@ header.scrolled {
     position: static; /* Prevent absolute positioning */
     margin: 0 auto; /* Center the logo between the hamburger and empty space */
     text-align: center; /* Center the logo content */
+    margin-top: 10px;
   }
 
   #logo img {
@@ -340,7 +368,7 @@ header.scrolled {
 
   .hamburger {
     display: block; /* Ensure hamburger is visible on mobile */
-    font-size: 40px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 101;
     margin-left: 10px; /* Aligns with the logo's padding */
