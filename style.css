@@ -169,15 +169,29 @@ header.scrolled {
 
 /* Intro Text */
 #intro-text {
-  font-size: 14px;
+  font-size: 20px;
   position: absolute;
-  top: 20%;
-  left: 5%;
-  text-align: left;
-  padding: 20px;
+  text-align: center;
   color: white;
-  max-width: 600px;
+  max-width: 60%;
   z-index: 20;
+  top: 45%; /* Push to the center vertically */
+  left: 50%; /* Push to the center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the element's dimensions */
+}
+
+@media screen and (max-width: 768px) {
+  #intro-text {
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    width: 90%;
+    z-index: 20;
+    top: 45%; /* Push to the center vertically */
+    transform: translate(-50%, -50%); /* Adjust for the element's dimensions */
+  }
+
 }
 
 /* Banner */
