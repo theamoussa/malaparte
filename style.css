@@ -162,7 +162,7 @@ header.scrolled {
 }
 
 .desktop-menu ul li a:hover {
-  color: #ddd;
+  color: #ff8000;
 }
 
 
@@ -426,3 +426,47 @@ a:hover {
     display: none; /* Hide thumbnails on mobile */
   }
 }
+
+.image-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Space between images */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px;
+  max-height: 50%;
+  text-align: center; /* Ensure text (if any) is centered */
+  width:60%;
+}
+
+.image-grid img {
+  max-height: 400px;
+  transition: transform 3s ease, opacity 3s ease;
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+.image-grid img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Scattering images horizontally */
+.image-grid img:nth-child(odd) {
+  transform: translateX(-20%);
+}
+
+.image-grid img:nth-child(even) {
+  transform: translateX(20%);
+}
+
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
