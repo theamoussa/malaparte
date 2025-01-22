@@ -93,7 +93,10 @@ header.scrolled {
 .mobile-menu a {
   text-decoration: none;
   color: black;
-  font-size: 16px;
+  font-size: 12px;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Close Button in Mobile Menu */
@@ -154,10 +157,12 @@ header.scrolled {
 
 .desktop-menu ul li a {
   text-decoration: none;
+  text-transform: uppercase; 
+  letter-spacing: 1px;
   color: white;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: 'Maiola', Times, serif;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: 'Montserrat';
   transition: color 0.3s;
 }
 
