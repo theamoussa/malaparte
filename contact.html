@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaparte Design Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://path-to-your-font-file/proxima-nova.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="images/Malaparte logo WHT.png" alt="Malaparte Design Logo">
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-menu" class="desktop-menu">
+      <ul>
+        <li><a href="story.html">Story</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="Editions.html">Editions</a></li>
+        <li><a href="exhibitions.html">Exhibitions</a></li>
+        <li><a href="Press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Hamburger Menu -->
+    <div id="hamburger-menu" class="hamburger" style="color: white;">
+      ☰
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="mobile-menu">
+      <div id="close-btn" class="close-btn">x</div>
+      <ul>
+        <li><a href="story.html">Story</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="Editions.html">Editions</a></li>
+        <li><a href="exhibitions.html">Exhibitions</a></li>
+        <li><a href="Press.html">Press</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="intro-text">
+    <div class="contact-info">
+        <p class="tracking-[3px] mt-2 text-center">GENERAL INFORMATION</p>
+        <br>
+        <p><a href="mailto:info@malapartedesign.com">Info@MalaparteDesign.com</a></p>
+    <br><br>
+    <p class="tracking-[3px] mt-2 text-center">AVAILABLE EDITIONS AND PRICING INQUIRIES</p>
+    <br>
+        <p><a href="mailto:Malapartedesign@gagosian.com">MalaparteDesign@Gagosian.com</a></p>
+    </div>
+</div>
+  
+  <div id="banner">
+    <img src="images/IMG_4461.jpg" alt="Casa Malaparte">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeBtn = document.getElementById("close-btn");
+  
+      // Open the mobile menu when the hamburger button is clicked
+      hamburger.addEventListener("click", () => {
+        mobileMenu.style.display = "flex"; // Show mobile menu
+      });
+  
+      // Close the mobile menu when the close button (X) is clicked
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.style.display = "none"; // Hide mobile menu
+      });
+    });
+  </script>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+  const pathname = window.location.pathname;
+  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
+    const htmlPath = pathname + '.html';
+    window.location.replace(htmlPath);
+  }
+</script>
+</body>
+</html>

@@ -228,6 +228,23 @@ header.scrolled {
   object-position: center;
 }
 
+
+#banner3 {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+#banner3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+
+
 /* History Text */
 #history {
   display: flex;
@@ -528,4 +545,94 @@ a:hover {
     font-size: 14px;
     text-align: left;
   }
+}
+
+
+
+
+.exhibition-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.exhibition-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.exhibition-item img {
+  width: 40%;
+  max-width: 60%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 3s ease, opacity 3s ease;
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+
+
+.exhibition-text {
+  flex: 1;
+  text-align: left;
+}
+
+.exhibition-title {
+  font-size: 22px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.exhibition-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.exhibition-item {
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.exhibition-item:hover {
+  opacity: 0.8; /* Slight fade effect on hover */
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 768px) {
+  .exhibition-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+  }
+
+  .exhibition-item img {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .exhibition-text {
+      text-align: center;
+  }
+
+  .exhibition-container {
+    gap: 60px;
+
+  }
+}
+
+.contact-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaparte Design Exhibitions</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/cmi0awi.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="images/Malaparte logo BLK.png" alt="Malaparte Logo">
+    </div>
+    <nav id="desktop-menu" class="desktop-menu">
+      <ul>
+        <li><a href="story.html" style="color: rgb(0, 0, 0);" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">Story</a></li>
+        <li><a href="history.html" style="color: black;" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">History</a></li>
+        <li><a href="Editions.html" style="color: black;" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">Editions</a></li>
+        <li><a href="exhibitions.html" style="color: black;" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">Exhibitions</a></li>
+        <li><a href="Press.html" style="color: black;" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">Press</a></li>
+        <li><a href="contact.html" style="color: black;" onmouseover="this.style.color='rgb(231, 139, 0)'" onmouseout="this.style.color='black'">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile Hamburger Menu -->
+    <div id="hamburger-menu" class="hamburger">☰</div>
+  
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="mobile-menu">
+      <ul>
+               <li><a href="story.html">Story</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="Editions.html">Editions</a></li>
+        <li><a href="exhibitions.html">Exhibitions</a></li>
+        <li><a href="Press.html">Press</a></li>
+         <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="banner3">
+    <img src="images/exhibitions/Screenshot 2025-02-03 at 15.36.51.png" alt="Exhibitions">
+  </div>
+<br>
+  <div id="Title">
+    <p style="font-size: larger tracking-3px mt-2 text-center;"><b>EXHIBITIONS</b></p><br>
+</div>
+ <!-- GRID -->
+ <div class="exhibition-container">
+  <div class="exhibition-item" onclick="location.href='https://gagosian.com/exhibitions/2025/moore-and-malaparte-rhythm-and-form/';">
+        <img src="images/exhibitions/Screenshot 2025-02-03 at 15.36.51.png" alt="Exhibition Image">
+        <div class="exhibition-text">
+            <h2 class="exhibition-title">Moore and Malaparte</h2>
+            <p class="exhibition-subtitle">January 22–March 27, 2025 <br> Gagosian, 9 rue de Castiglione, 75001 Paris</p>
+        </div>
+    </div>
+
+    <div class="exhibition-item" onclick="location.href='https://gagosian.com/exhibitions/2022/casa-malaparte-furniture/';">
+      <img src="images/exhibitions/Screenshot 2025-02-03 at 15.37.09.png" alt="Exhibition Image">
+        <div class="exhibition-text">
+            <h2 class="exhibition-title">Casa Malaparte: Furniture</h2>
+            <p class="exhibition-subtitle">September 14–October 22, 2022 <br> Park & 75, New York</p>
+        </div>
+    </div>
+
+    <div class="exhibition-item" onclick="location.href='https://gagosian.com/exhibitions/2020/casa-malaparte-furniture/';">
+      <img src="images/exhibitions/Screenshot 2025-02-03 at 15.24.43.png" alt="Exhibition Image">
+        <div class="exhibition-text">
+            <h2 class="exhibition-title">Casa Malaparte: Furniture</h2>
+            <p class="exhibition-subtitle">June 15–September 19, 2020<br> Gagosian, Davies Street, London</p>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- Footer-->
+  <footer id="site-footer">
+    <p>Casa Malaparte is a work of art created by Curzio Malaparte</p>
+    <p>Malaparte™️ - Casa Malaparte®️</p>
+    <p>Photos by Dariusz Jasak. All rights reserved Malaparte Design, LLC.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carouselContainers = document.querySelectorAll('.carousel-container');
+
+      carouselContainers.forEach((container) => {
+        const slidesContainer = container.querySelector('.carousel-slides');
+        const slides = container.querySelectorAll('.carousel-slides img');
+
+        // Snap to the nearest slide
+        const snapToSlide = () => {
+          const slideWidth = slides[0].clientWidth;
+          const index = Math.round(slidesContainer.scrollLeft / slideWidth);
+          slidesContainer.scrollTo({
+            left: index * slideWidth,
+            behavior: 'smooth',
+          });
+
+        };
+
+        slidesContainer.addEventListener('scroll', () => {
+          clearTimeout(slidesContainer.snapTimeout);
+          slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
+        });
+
+        window.addEventListener('resize', () => snapToSlide());
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+  if (hamburgerMenu && mobileMenu && closeBtn) {
+    // Open mobile menu
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.style.display = 'flex';
+    });
+
+    // Close mobile menu
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+  // Scroll event to handle header background and shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled'); // Add background and shadow on scroll
+    } else {
+      header.classList.remove('scrolled'); // Remove background and shadow
+    }
+  });
+
+  // Toggle mobile menu visibility
+  if (hamburgerMenu && mobileMenu && closeBtn) {
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.style.display = 'flex'; // Show the mobile menu
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.style.display = 'none'; // Hide the mobile menu
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carouselContainers = document.querySelectorAll('.carousel-container');
+
+  carouselContainers.forEach((container) => {
+    const slidesContainer = container.querySelector('.carousel-slides');
+    const slides = container.querySelectorAll('.carousel-slides img');
+    const thumbnailsContainer = container.nextElementSibling; // Assumes thumbnails follow the carousel
+    const thumbnails = thumbnailsContainer.querySelectorAll('img');
+
+    // Update the active thumbnail
+    const updateActiveThumbnail = (currentIndex) => {
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active-thumb', index === currentIndex);
+      });
+    };
+
+    // Snap to the nearest slide
+    const snapToSlide = () => {
+      const slideWidth = slides[0].clientWidth;
+      const currentIndex = Math.round(slidesContainer.scrollLeft / slideWidth);
+
+      slidesContainer.scrollTo({
+        left: currentIndex * slideWidth,
+        behavior: 'smooth',
+      });
+
+      updateActiveThumbnail(currentIndex);
+    };
+
+    // Handle thumbnail clicks
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        slidesContainer.scrollTo({
+          left: index * slides[0].clientWidth,
+          behavior: 'smooth',
+        });
+
+        updateActiveThumbnail(index);
+      });
+    });
+
+    // Snap to slide on scroll
+    slidesContainer.addEventListener('scroll', () => {
+      clearTimeout(slidesContainer.snapTimeout);
+      slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
+    });
+
+    // Align slides properly on window resize
+    window.addEventListener('resize', snapToSlide);
+  });
+});
+
+
+
+//Don't change above
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Handle scroll background and shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Toggle mobile menu
+  if (hamburgerMenu && mobileMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+      } else {
+        mobileMenu.style.display = 'flex';
+      }
+    });
+  }
+});
+
+
+
+</script>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+  const pathname = window.location.pathname;
+  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
+    const htmlPath = pathname + '.html';
+    window.location.replace(htmlPath);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+
+
+  // Close mobile menu when clicking outside of it
+  document.addEventListener('click', (event) => {
+    const isClickInsideMenu = mobileMenu.contains(event.target);
+    const isClickOnToggleButton = hamburgerMenu.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggleButton) {
+      mobileMenu.style.display = 'none';
+    }
+  });
+});
+  
+</script>
+</body>
+</html>
