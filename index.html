@@ -34,18 +34,7 @@
     <img src="images/Malaparte logo WHT.png" alt="Malaparte Logo" id="logo">
   </div>
 <script>
-  document.querySelectorAll('a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.endsWith('')) {
-      link.setAttribute('href', href.replace('', ''));
-    }
-  });
-
-  const pathname = window.location.pathname;
-  if (!pathname.endsWith('/') && !pathname.includes('')) {
-    const htmlPath = pathname + '';
-    window.location.replace(htmlPath);
-  }
+ 
 </script>
 </body>
 </html>
