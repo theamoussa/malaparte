@@ -14,7 +14,7 @@
         introScreen.classList.add("fade-out");
         setTimeout(() => {
           introScreen.style.display = "none";
-          window.location.href = "about.html"; // Redirect to homepage
+          window.location.href = "about"; // Redirect to homepage
         }, 1000);
       }, fadeDuration);
 
@@ -22,7 +22,7 @@
         introScreen.classList.add("fade-out");
         setTimeout(() => {
           introScreen.style.display = "none";
-          window.location.href = "about.html"; // Redirect to homepage
+          window.location.href = "about"; // Redirect to homepage
         }, 1000);
       });
     });
@@ -36,14 +36,14 @@
 <script>
   document.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href && href.endsWith('.html')) {
-      link.setAttribute('href', href.replace('.html', ''));
+    if (href && href.endsWith('')) {
+      link.setAttribute('href', href.replace('', ''));
     }
   });
 
   const pathname = window.location.pathname;
-  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
-    const htmlPath = pathname + '.html';
+  if (!pathname.endsWith('/') && !pathname.includes('')) {
+    const htmlPath = pathname + '';
     window.location.replace(htmlPath);
   }
 </script>

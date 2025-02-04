@@ -15,12 +15,12 @@
     </div>
     <nav id="desktop-menu" class="desktop-menu">
       <ul>
-        <li><a href="about.html
+        <li><a href="about
 " style="color: black;">About</a></li>
-        <li><a href="Editions.html" style="color: black;">Editions</a></li> 
-        <li><a href="exhibitions.html" style="color: black;">Exhibitions</a></li>
-        <li><a href="Press.html" style="color: black;">Press</a></li>
-        <li><a href="contact.html" style="color: black;">Contact</a></li>
+        <li><a href="Editions" style="color: black;">Editions</a></li> 
+        <li><a href="exhibitions" style="color: black;">Exhibitions</a></li>
+        <li><a href="Press" style="color: black;">Press</a></li>
+        <li><a href="contact" style="color: black;">Contact</a></li>
       </ul>
     </nav>
     <!-- Mobile Hamburger Menu -->
@@ -29,12 +29,12 @@
     <!-- Mobile Navigation -->
     <nav id="mobile-menu" class="mobile-menu">
       <ul>
-               <li><a href="about.html">About</a></li>
-        <li><a href="Editions.html">Editions</a></li>
-        <li><a href="exhibitions.html">Exhibitions</a></li>
+               <li><a href="about">About</a></li>
+        <li><a href="Editions">Editions</a></li>
+        <li><a href="exhibitions">Exhibitions</a></li>
 
-        <li><a href="Press.html">Press</a></li>
-         <li><a href="contact.html">Contact</a></li>
+        <li><a href="Press">Press</a></li>
+         <li><a href="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -288,14 +288,14 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
   document.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href && href.endsWith('.html')) {
-      link.setAttribute('href', href.replace('.html', ''));
+    if (href && href.endsWith('')) {
+      link.setAttribute('href', href.replace('', ''));
     }
   });
 
   const pathname = window.location.pathname;
-  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
-    const htmlPath = pathname + '.html';
+  if (!pathname.endsWith('/') && !pathname.includes('')) {
+    const htmlPath = pathname + '';
     window.location.replace(htmlPath);
   }
 </script>
