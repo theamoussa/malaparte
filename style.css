@@ -619,9 +619,6 @@ margin-left:20vh;
   flex: 1;
   text-align: left;
   align-self: center; /* Ensures vertical alignment */
-  font-family: "Helvetica Neue", "HelveticaNeue-Thin", Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  font-size: 12px;
 }
 
 .exhibition-title {
@@ -747,4 +744,33 @@ margin-left:20vh;
   .exhibition-container2 {
     gap: 60px;
   }
+}
+
+
+/* Intro Text */
+#intro-text2 {
+  font-size: 24px;
+  position: absolute;
+  text-align: center;
+  color: white;
+  max-width: 50%;
+  z-index: 20;
+  top: 50%; /* Push to the center vertically */
+  left: 50%; /* Push to the center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the element's dimensions */
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  #intro-text2 {
+    font-size: 22px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    width: 90%;
+    z-index: 20;
+    top: 50%; /* Push to the center vertically */
+    transform: translate(-50%, -50%); /* Adjust for the element's dimensions */
+  }
+
 }
