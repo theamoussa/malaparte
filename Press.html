@@ -6,17 +6,17 @@
   <title>Press</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.typekit.net/cmi0awi.css">
+  <link rel="stylesheet" href="https://use.typekit.net/your-adobe-font-id.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <header>
     <div id="logo">
-      <img src="images/Malaparte logo WHT.png" alt="Malaparte Logo">
+      <img id="logo-img" src="images/Malaparte logo WHT.png" alt="Malaparte Design Logo">
     </div>
     <nav id="desktop-menu" class="desktop-menu">
       <ul>
-               <li><a href="story.html">Story</a></li>
-        <li><a href="history.html">History</a></li>
+               <li><a href="about.html">About</a></li>
         <li><a href="Editions.html">Editions</a></li>
 
         <li><a href="exhibitions.html">Exhibitions</a></li>
@@ -31,9 +31,8 @@
     <!-- Mobile Navigation -->
     <nav id="mobile-menu" class="mobile-menu">
       <ul>
-               <li><a href="story.html">Story</a></li>
+               <li><a href="about.html">About</a></li>
         <li><a href="Editions.html">Editions</a></li>
-        <li><a href="history.html">History</a></li>
 
         <li><a href="exhibitions.html">Exhibitions</a></li>
 
@@ -181,147 +180,51 @@
   </footer>
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const carouselContainers = document.querySelectorAll('.carousel-container');
-
-      carouselContainers.forEach((container) => {
-        const slidesContainer = container.querySelector('.carousel-slides');
-        const slides = container.querySelectorAll('.carousel-slides img');
-
-        // Snap to the nearest slide
-        const snapToSlide = () => {
-          const slideWidth = slides[0].clientWidth;
-          const index = Math.round(slidesContainer.scrollLeft / slideWidth);
-          slidesContainer.scrollTo({
-            left: index * slideWidth,
-            behavior: 'smooth',
-          });
-
-        };
-
-        slidesContainer.addEventListener('scroll', () => {
-          clearTimeout(slidesContainer.snapTimeout);
-          slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
-        });
-
-        window.addEventListener('resize', () => snapToSlide());
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-  const hamburgerMenu = document.getElementById('hamburger-menu');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('close-btn');
-
-  if (hamburgerMenu && mobileMenu && closeBtn) {
-    // Open mobile menu
-    hamburgerMenu.addEventListener('click', () => {
-      mobileMenu.style.display = 'flex';
-    });
-
-    // Close mobile menu
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.style.display = 'none';
-    });
-  }
-});
-
+    <script>
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const hamburgerMenu = document.getElementById('hamburger-menu');
   const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('close-btn');
+  const logoImg = document.getElementById('logo-img');
 
+  // Scroll event to add background, shadow, and change logo
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+      logoImg.src = 'images/Malaparte logo BLK.png'; // Change to black logo
+    } else {
+      header.classList.remove('scrolled');
+      logoImg.src = 'images/Malaparte logo WHT.png'; // Change back to white logo
+    }
+  });
 
 
   // Toggle mobile menu visibility
-  if (hamburgerMenu && mobileMenu && closeBtn) {
-    hamburgerMenu.addEventListener('click', () => {
-      mobileMenu.style.display = 'flex'; // Show the mobile menu
-    });
-
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.style.display = 'none'; // Hide the mobile menu
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselContainers = document.querySelectorAll('.carousel-container');
-
-  carouselContainers.forEach((container) => {
-    const slidesContainer = container.querySelector('.carousel-slides');
-    const slides = container.querySelectorAll('.carousel-slides img');
-    const thumbnailsContainer = container.nextElementSibling; // Assumes thumbnails follow the carousel
-    const thumbnails = thumbnailsContainer.querySelectorAll('img');
-
-    // Update the active thumbnail
-    const updateActiveThumbnail = (currentIndex) => {
-      thumbnails.forEach((thumb, index) => {
-        thumb.classList.toggle('active-thumb', index === currentIndex);
-      });
-    };
-
-    // Snap to the nearest slide
-    const snapToSlide = () => {
-      const slideWidth = slides[0].clientWidth;
-      const currentIndex = Math.round(slidesContainer.scrollLeft / slideWidth);
-
-      slidesContainer.scrollTo({
-        left: currentIndex * slideWidth,
-        behavior: 'smooth',
-      });
-
-      updateActiveThumbnail(currentIndex);
-    };
-
-    // Handle thumbnail clicks
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        slidesContainer.scrollTo({
-          left: index * slides[0].clientWidth,
-          behavior: 'smooth',
-        });
-
-        updateActiveThumbnail(index);
-      });
-    });
-
-    // Snap to slide on scroll
-    slidesContainer.addEventListener('scroll', () => {
-      clearTimeout(slidesContainer.snapTimeout);
-      slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
-    });
-
-    // Align slides properly on window resize
-    window.addEventListener('resize', snapToSlide);
-  });
-});
-
-
-
-//Don't change above
-
-document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('header');
-  const hamburgerMenu = document.getElementById('hamburger-menu');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-
-
-  // Toggle mobile menu
   if (hamburgerMenu && mobileMenu) {
     hamburgerMenu.addEventListener('click', () => {
       if (mobileMenu.style.display === 'flex') {
-        mobileMenu.style.display = 'none';
+        mobileMenu.style.display = 'none'; // Close the mobile menu
       } else {
-        mobileMenu.style.display = 'flex';
+        mobileMenu.style.display = 'flex'; // Open the mobile menu
       }
     });
   }
 });
 
+  </script>
+  <!-- Add content specific to the History page here -->
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+ 
+
+  
+</script>
 
 
 </script>

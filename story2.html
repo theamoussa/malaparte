@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaparte Design History</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/your-adobe-font-id.css">
+
+</head>
+<body>
+    <header>
+        <div id="logo">
+          <img src="images/Malaparte logo WHT.png" alt="Malaparte Design Logo">
+        </div>
+    
+        <!-- Desktop Navigation -->
+        <nav id="desktop-menu" class="desktop-menu">
+          <ul>
+            <li><a href="about.html">About</a></li>
+                <li><a href="Editions.html">Editions</a></li>
+            <li><a href="exhibitions.html">Exhibitions</a></li>
+            <li><a href="Press.html">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+    
+        <!-- Mobile Hamburger Menu -->
+        <div id="hamburger-menu" class="hamburger" style="color: white;">
+          ☰
+        </div>
+    
+        <!-- Mobile Navigation -->
+        <nav id="mobile-menu" class="mobile-menu">
+          <div id="close-btn" class="close-btn">x</div>
+          <ul>
+            <li><a href="about.html">About</a></li>
+                <li><a href="Editions.html">Editions</a></li>
+            <li><a href="exhibitions.html">Exhibitions</a></li>
+            <li><a href="Press.html">Press</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+  <div id="banner">
+    <img src="images/thesofa/Curzio.jpg" alt="Casa Malaparte">
+  </div>
+  <br>
+
+
+<div class="exhibition-container2">
+    <div class="exhibition-item2">
+      <div class="exhibition-image-wrapper2">
+        
+        <img src="images/Screenshot 2025-02-03 at 23.04.59.png" alt="Exhibition Image">
+        </div>
+          <div class="exhibition-text2">
+            <div id="Title">
+                <p style="font-size: larger tracking-3px mt-2 text-center"><b>HISTORY</b></div>
+                <br>
+                <p id="Title" style="font-size: 16px;"><b>CURZIO MALAPARTE</b></p><br>
+                <div id="history2">
+                <p>
+                    Curzio Malaparte, pseudonym of Kurt Erich Suckert, (1898-1957), was a journalist, dramatist, short-story writer, novelist, composer, director, screenwriter, designer, architect, diplomat, and one of the most powerful, brilliant, and controversial writers of the post-World War II period.
+                  </p><br></div>
+                  <p id="Title" style="font-size: 16px;"><b>CASA MALAPARTE</b></p><br>
+                <div id="history2">
+                <p>
+                    <p>
+                    In 1938 Malaparte purchased a piece of land overlooking the Tyrrhenian Sea. There, he supervised the construction of Casa Malaparte, his autobiographical residence and architectural brainchild, to which he referred to with affection as “casa come me”—"a house like me.” Designed in its entirety, from floor plan to furniture, by Malaparte himself, the house blends classical and modernist influences, uniting them under one roof with inimitable poetic drama. Despite Malaparte's passing in 1957, the house lives on as an unrivaled architectural masterwork and an inspirational platform for present-day artists and designers.
+                  </div>
+              </p>
+          </div>
+      </div></div>
+<br><br>
+      <div class="exhibition-container2">
+        <div class="exhibition-item2">
+          <div class="exhibition-image-wrapper2">
+            <img src="images/production/IMG_7206.jpg" alt="Exhibition Image">
+            </div>
+              <div class="exhibition-text2">
+                <div id="Title">
+                  <p style="font-size: larger tracking-3px mt-2 text-center"><b>STORY</b></p>
+                </div>
+                  <div id="history2">
+                    <p>
+<br>Constructed on an isolated promontory on the rugged eastern coast of Capri, Italy, Casa Malaparte is a unique exemplar of twentieth-century Italian architecture. The visionary residence was designed in 1938 by Curzio Malaparte (the pseudonym of Kurt Erich Suckert), a provocative writer, editor, and intellectual active in the Italian literary and artistic avant-garde who was notorious for his oscillations between the ideological extremes of the era. Malaparte completed the home in 1941, realizing a strikingly spare design incorporating a trapezoidal exterior staircase that leads to a broad terrace overlooking the luscious green of maritime pine trees, the buff tones of limestone cliffs, and the aqueous blues of the Tyrrhenian Sea. Combining an austere modernism with interpretations of classical elements, Casa Malaparte exhibits a decidedly personal and poetic sensibility, leading its creator to declare the structure to be casa come me—a “house like me.”
+                      <br><br> Drawing inspiration from the existing spirit of Casa Malaparte, Malaparte Design is dedicated to honoring the legacy of both man and house through an exploration of the elements that give the house its unique voice. Founded in 2019 by Malaparte's youngest descendent, Tommaso Rositani Suckert, Malaparte Design seeks to create modern reinterpretations of the iconic brand in the areas of furniture, design, art, film, and hospitality..</p>
+                    </div>
+                  </p>
+              </div>
+          </div>
+<br>
+</div>
+<footer id="site-footer">
+  <p>Casa Malaparte is a work of art created by Curzio Malaparte</p>
+  <p>Malaparte™️   -   Casa Malaparte®️</p>
+  <p>Photos by Dariusz Jasak. All rights reserved Malaparte Design, LLC.</p>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Scroll event to add background and shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Toggle mobile menu visibility
+  if (hamburgerMenu && mobileMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+      if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none'; // Close the mobile menu
+      } else {
+        mobileMenu.style.display = 'flex'; // Open the mobile menu
+      }
+    });
+  }
+});
+
+  </script>
+  <!-- Add content specific to the History page here -->
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.endsWith('.html')) {
+      link.setAttribute('href', href.replace('.html', ''));
+    }
+  });
+
+  const pathname = window.location.pathname;
+  if (!pathname.endsWith('/') && !pathname.includes('.html')) {
+    const htmlPath = pathname + '.html';
+    window.location.replace(htmlPath);
+  }
+</script>
+</body>
+
+
+</html>
+
