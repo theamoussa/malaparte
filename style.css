@@ -774,3 +774,66 @@ margin-left:20vh;
   }
 
 }
+
+.outer-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.padding-container {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.hover-zoom {
+  transition: transform 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* The Sofa Page Specific Styles */
+#sofa-title, #sofa-tribute-title {
+  font-size: larger;
+  letter-spacing: 4px;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+#sofa-image-main {
+  width: 100%; /* Makes it responsive */
+  height: auto; /* Keeps aspect ratio */
+  display: block;
+  max-width: 800px !important; /* Optional: Limit max size */
+  margin: 0 auto; /* Center it */
+}
+
+
+/* Optional: Adjustments for mobile */
+@media screen and (max-width: 768px) {
+  #sofa-description, #sofa-tribute-description {
+    font-size: 16px;
+  }
+}
