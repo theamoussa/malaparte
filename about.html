@@ -71,9 +71,17 @@
   <div id="intro-text">
     <p class="tracking-[4px] mt-2 text-center" style="font-size: larger;"><b>MALAPARTE DESIGN</b></p></div>
   
-  <div id="banner">
-    <img src="images/casa-malaparte-design.jpg" alt="Casa Malaparte">
+
+  <div id="banner" class="slideshow-container">
+    <div class="slide"><img src="images/casa-malaparte-design.jpg" alt="Casa Malaparte 1"></div>
+    <div class="slide"><img src="images/production/IMG_7190.jpg" alt="Casa Malaparte 2"></div>
+    <div class="slide"><img src="images/production/IMG_6831.jpg" alt="Casa Malaparte 3"></div>
+    <div class="slide"><img src="images/production/IMG_6336.jpg" alt="Casa Malaparte 4"></div>
   </div>
+
+
+
+
 
   <br>
 
@@ -160,8 +168,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+</script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+  
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  
+    // Show first slide immediately
+    showSlide(currentSlide);
+  
+    // Auto-change slides every 3 seconds
+    setInterval(nextSlide, 3000);
+  });
   </script>
+  
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
