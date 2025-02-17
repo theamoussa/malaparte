@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malaparte Design | Timeless Furniture & Design Inspired by Casa Malaparte</title>
 <meta name="description" content="Malaparte Design reinterprets the legacy of Curzio Malaparte and Casa Malaparte through contemporary furniture, art, and design. Founded by Tommaso Rositani Suckert.">
-<meta name="keywords" content="Malaparte Design, Casa Malaparte, Curzio Malaparte, contemporary furniture, Italian design, modern furniture, Capri architecture, architectural design">
+<meta name="keywords" content="Malaparte Design, Exhibitions, Gagosian, Malaparte Furniture, Moore and Malaparte, Casa Malaparte, Curzio Malaparte, contemporary furniture, Italian design, modern furniture, Capri architecture, architectural design">
 <meta name="author" content="Malaparte Design">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Malaparte Design - Inspired by Casa Malaparte">
@@ -16,7 +15,7 @@
   <title>Malaparte Design Exhibitions</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.typekit.net/cmi0awi.css">
-
+  <link rel="canonical" href="https://malapartedesign.com/exhibitions">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -186,58 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.style.display = 'none'; // Hide the mobile menu
     });
   }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselContainers = document.querySelectorAll('.carousel-container');
-
-  carouselContainers.forEach((container) => {
-    const slidesContainer = container.querySelector('.carousel-slides');
-    const slides = container.querySelectorAll('.carousel-slides img');
-    const thumbnailsContainer = container.nextElementSibling; // Assumes thumbnails follow the carousel
-    const thumbnails = thumbnailsContainer.querySelectorAll('img');
-
-    // Update the active thumbnail
-    const updateActiveThumbnail = (currentIndex) => {
-      thumbnails.forEach((thumb, index) => {
-        thumb.classList.toggle('active-thumb', index === currentIndex);
-      });
-    };
-
-    // Snap to the nearest slide
-    const snapToSlide = () => {
-      const slideWidth = slides[0].clientWidth;
-      const currentIndex = Math.round(slidesContainer.scrollLeft / slideWidth);
-
-      slidesContainer.scrollTo({
-        left: currentIndex * slideWidth,
-        behavior: 'smooth',
-      });
-
-      updateActiveThumbnail(currentIndex);
-    };
-
-    // Handle thumbnail clicks
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        slidesContainer.scrollTo({
-          left: index * slides[0].clientWidth,
-          behavior: 'smooth',
-        });
-
-        updateActiveThumbnail(index);
-      });
-    });
-
-    // Snap to slide on scroll
-    slidesContainer.addEventListener('scroll', () => {
-      clearTimeout(slidesContainer.snapTimeout);
-      slidesContainer.snapTimeout = setTimeout(snapToSlide, 150);
-    });
-
-    // Align slides properly on window resize
-    window.addEventListener('resize', snapToSlide);
-  });
 });
 
 
